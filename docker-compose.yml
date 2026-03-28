@@ -34,7 +34,8 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./ssl:/etc/nginx/ssl:ro
+      - /etc/ssl/certs/cloudflare-origin.pem:/etc/ssl/certs/cloudflare-origin.pem:ro
+      - /etc/ssl/private/cloudflare-origin.key:/etc/ssl/private/cloudflare-origin.key:ro
     depends_on:
       - api
       - ui
